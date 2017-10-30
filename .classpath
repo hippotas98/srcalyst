@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt_3.13.1.v20171009-0410.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.annotation_1.1.100.v20160418-1457.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.annotation_2.1.100.v20170511-1408.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.apt.core_3.5.50.v20170920-0950.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.apt.pluggable.core_1.2.0.v20170322-1054.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.apt.ui_3.5.0.v20170505-1107.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.compiler.apt_1.3.50.v20170920-0950.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.compiler.tool_1.2.50.v20170920-0950.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.core_3.13.50.v20171007-0855.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.core.manipulation_1.9.50.v20170920-1015.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.debug.ui_3.8.50.v20170928-1211.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.doc.user_3.13.50.v20171004-1030.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.junit_3.10.50.v20171004-1157.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.junit.core_3.9.50.v20170927-1941.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.junit.runtime_3.4.650.v20170920-1015.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.junit4.runtime_1.1.650.v20170920-1015.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.junit5.runtime_1.0.0.v20171006-0854.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.launching_3.9.50.v20171009-0349.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.launching.macosx_3.4.0.v20160923-0911.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.launching.ui.macosx_1.2.0.v20160923-0911.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.jdt.ui_3.13.50.v20170929-1653.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.core.contenttype_3.6.0.v20170207-1037.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.core.jobs_3.9.1.v20170714-0547.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.core.resources_3.12.0.v20170417-1558.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.core.runtime_3.13.0.v20170207-1030.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.equinox.common_3.9.0.v20170207-1454.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.equinox.preferences_3.7.0.v20170126-2132.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.osgi_3.12.50.v20170928-1321.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

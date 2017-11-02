@@ -49,14 +49,9 @@ class Utils
     }
 	static final CompilationUnit generateAST(String source)
 	{
-		ASTParser parser = ASTParser.newParser(AST.JLS8);
+		ASTParser parser = ASTParser.newParser(AST.JLS3);
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
 		parser.setSource(source.toCharArray());
-		parser.setResolveBindings(true);
-		parser.setBindingsRecovery(true);
-		parser.setUnitName(null);
-		parser.setProject(null);;
-		parser.setEnvironment(null, null, null, true);
 		return (CompilationUnit) parser.createAST(null);
 	}
 	

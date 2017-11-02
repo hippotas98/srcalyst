@@ -52,7 +52,7 @@ class ClassADT {
 		List<String> variables = new ArrayList<String>();
 		List<String> lsInterface = InterfaceADT.itfname;
 		List<String> interfaces = InterfaceADT.getInterfaces(lsInterface, content);
-		List<String> superclass = new ArrayList<String>();
+		//List<String> superclass = new ArrayList<String>();
 		String spn = new String();
 		ClassADT clas =  new ClassADT(name,method,variables,interfaces,spn);
 		clas.setVariable(cu);

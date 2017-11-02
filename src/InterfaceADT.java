@@ -1,5 +1,4 @@
 import java.util.*;
-import org.eclipse.jdt.core.dom.*;
 class InterfaceADT {
 	String name;
 	List<String> interfaces = new ArrayList<String>();

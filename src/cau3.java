@@ -3,6 +3,10 @@ import java.util.*;
 public class cau3
 {	
 int a = 0;
+	//public void static abc ()
+//{
+//	a = 1;
+//}
     public static void main (String [] args)
     {
         Teacher t1 = new Teacher();

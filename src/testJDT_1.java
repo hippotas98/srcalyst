@@ -1,15 +1,4 @@
-import java.util.HashSet;
-import java.util.Set;
 import java.util.*;
-import org.eclipse.jdt.core.dom.AST;
-import org.eclipse.jdt.core.dom.ASTParser;
-import org.eclipse.jdt.core.dom.ASTVisitor;
-import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.core.dom.SimpleName;
-import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.ASTNode.*;
-
 
 public class testJDT_1 {
 	public static void main(String [] args){
@@ -26,7 +15,7 @@ public class testJDT_1 {
 				ClassADT clas = ClassADT.createClassADT(content, Cname);
 				classes.add(clas);
 			}
-			ClassADT example = classes.get(3);
+			ClassADT example = classes.get(0);
 			System.out.println("Ten class: " + example.name);
 			System.out.println("Interfaces: ");
 			for(String i : example.interfaces)

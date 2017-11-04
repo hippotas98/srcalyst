@@ -15,7 +15,7 @@ public class testJDT_1 {
 				ClassADT clas = ClassADT.createClassADT(content, Cname);
 				classes.add(clas);
 			}
-			ClassADT example = classes.get(0);
+			ClassADT example = classes.get(2);
 			System.out.println("Ten class: " + example.name);
 			System.out.println("Interfaces: ");
 			for(String i : example.interfaces)

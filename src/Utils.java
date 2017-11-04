@@ -17,6 +17,7 @@ class Utils
         try(BufferedReader in = new BufferedReader(new FileReader(path))) {
             while((line=in.readLine())!=null)
             {
+            		if(line.indexOf("//")!=0)
                 strs.add(line);
             }
         } catch (Exception e) {

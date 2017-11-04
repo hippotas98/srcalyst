@@ -66,29 +66,21 @@ class ClassADT {
 	}
 	void setVariable(CompilationUnit cu)
 	{
-		//List<String> variables = new ArrayList<String>();
 		cu.accept( new ASTVisitor() {
 			//Set names = new HashSet();
 			public boolean visit(VariableDeclarationFragment node) {
 				SimpleName name = node.getName();
-				//System.out.println(node));
-				//this.names.add(name.getIdentifier());
 				String type = new String();
 				if(node.getParent() instanceof FieldDeclaration)
 				{
 					FieldDeclaration fd = (FieldDeclaration) node.getParent();
-//					if(fd.getType().isSimpleType())
-//					{
-						type = fd.getType().toString();
-					//}
-					//System.out.println(type);
+					type = fd.getType().toString();
 					String temp = type + " " + name.toString();
 					variables.add(temp);
 				}
-				return true; // do not continue to avoid usage info
+				return true; 
 			}
 		});
-		//return variables;
 	}
 	void setSuperClass(CompilationUnit cu)
 	{
@@ -99,10 +91,7 @@ class ClassADT {
 				if(node!=null)
 				{
 					Type sc = node.getSuperclassType();
-					//System.out.println(sc);
-					//System.out.println(node.getName());
 					String str = sc.toString();
-					//System.out.println(str);
 					superClass.add(str);
 				}
 				return true;
@@ -139,7 +128,6 @@ class ClassADT {
 	public static void getClassContent(String fileName)
     {
         List<String> temp = Utils.readContentFromFile(fileName);
-        //System.out.println(temp.size());
         for(int i = 0;i<temp.size();)
         {
             int index = 0;
@@ -167,7 +155,6 @@ class ClassADT {
                     tmp.append("\n");
                 }
                 lsClass.add(tmp.toString());
-                //classname.add(strs.get(0).replaceAll(" ","").subString(strs.get(0).indexOf("class")));
                 i = index;
             }
             else i++;

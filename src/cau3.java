@@ -73,15 +73,15 @@ class Teacher extends Person implements hello
 	school = "1";
 }
 }
-class President extends Person{
-    String country;
-    public String getCountry() {
-        return this.country;
-    }
-    public void setCountry(String country) {
-        this.country = country;
-    }
-}
+//class President extends Person{
+//    String country;
+//    public String getCountry() {
+//        return this.country;
+//    }
+//    public void setCountry(String country) {
+//        this.country = country;
+//    }
+//}
 class Developer extends Person{
     List<String> languages = new ArrayList<String>();
     public List<String> getLanguage() {

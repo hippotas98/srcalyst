@@ -6,8 +6,10 @@ class ClassADT {
 	List<String> interfaces = new ArrayList<String>();
 	List<String> variables = new ArrayList<String>();
 	String superclass = "null";
-	static List<String> lsClass = new ArrayList<String>();
-	static List<String> classname = new ArrayList<String>();
+	static List<String> lsClass = new ArrayList<String>(); // list class
+	static List<String> classname = new ArrayList<String>(); // class name
+	boolean abs = false;
+	List<ClassADT> hasaClass = new ArrayList<ClassADT>();
 	public String getName()
 	{
 		return this.name;
@@ -172,5 +174,44 @@ class ClassADT {
 			}
 			
 		}
+	}
+	public void IsAbstract()
+	{
+		String line = this.lsClass.get(classname.indexOf(this.name));
+		line = line.substring(0,line.indexOf("{")-1);
+		if(line.contains("abstract"))
+		{
+			this.abs = true;
+		}
+	}
+	public void hasaFind(List<ClassADT> classes)
+	{
+		//int indx = classname.indexOf(this.name);
+		//String content = lsClass.get(indx);
+		int counter = 0;
+		for(ClassADT cla : classes)
+		{
+			if(cla.variables.size() < this.variables.size())
+			{
+				for(String variable : cla.variables)
+				{
+					for(String v : this.variables)
+					{
+						if(v.equals(variable))
+						{
+							counter++;
+							break;
+						}
+					}
+				}
+				if(counter == cla.variables.size())
+					hasaClass.add(cla);
+			}
+		}
+		if(hasaClass.size()==0)
+		{
+			hasaClass.add(new ClassADT("null",null,null,null,"null"));
+		}
+		//return hasaClass;
 	}
 }

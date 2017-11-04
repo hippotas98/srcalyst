@@ -17,6 +17,12 @@ public class testJDT_1 {
 			}
 			ClassADT example = classes.get(2);
 			System.out.println("Ten class: " + example.name);
+			example.hasaFind(classes);
+			System.out.println("Has a: ");
+			for(ClassADT i : example.hasaClass)
+			{
+				System.out.println(i.getName());
+			}
 			System.out.println("Interfaces: ");
 			for(String i : example.interfaces)
 			{

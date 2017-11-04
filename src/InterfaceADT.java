@@ -115,7 +115,7 @@ class InterfaceADT {
 		for(String i : lsmethods)
 		{
 			//System.out.print(i+"\n");
-			if(i!=null)
+			if(i!=null&&i.indexOf("//")!=0)
 			{
 				while(i.indexOf(" ")==0)
 				{

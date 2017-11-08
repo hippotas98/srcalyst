@@ -17,23 +17,19 @@ public class testJDT_1 {
 			System.out.println("Ten class: " + example.name);
 			System.out.println("Abstract: " + example.abs);
 			System.out.println("Has a: ");
-			for(String i : example.hasaClass)
-			{
+			for(String i : example.hasaClass){
 				System.out.println(i);
 			}
 			System.out.println("Interfaces: ");
-			for(String i : example.interfaces)
-			{
+			for(String i : example.interfaces){
 				System.out.println(i);
 			}
 			System.out.println("Methods: ");
-			for(String i : example.methods)
-			{
+			for(String i : example.methods){
 				System.out.println(i);
 			}
 			System.out.println("Variables: ");
-			for(String i : example.variables)
-			{
+			for(String i : example.variables){
 				System.out.println(i);
 			}
 			System.out.println("Class cha: "+ example.superclass);
@@ -41,8 +37,7 @@ public class testJDT_1 {
 			InterfaceADT.readInterfaceFromFile(path);
 			InterfaceADT.getInterfacesContent(path);
 			List<InterfaceADT> interfaces = new ArrayList<InterfaceADT>();
-			for(String Iname : InterfaceADT.lsInterface_name)
-			{
+			for(String Iname : InterfaceADT.lsInterface_name){
 				int index = InterfaceADT.lsInterface_name.indexOf(Iname);
 				String Icontent = InterfaceADT.lsInterface.get(index);
 				InterfaceADT iface = InterfaceADT.createInterface(Icontent, Iname);
@@ -51,14 +46,12 @@ public class testJDT_1 {
 			InterfaceADT ex = interfaces.get(0);
 			System.out.println("Interface: " + ex.name);
 			System.out.println("Method: ");
-			for(String method : ex.methods)
-			{
+			for(String method : ex.methods){
 				System.out.print(method +" ");
 			}
 			System.out.println();
 			System.out.println("Interfaces: ");
-			for(String impitf : ex.interfaces)
-			{
+			for(String impitf : ex.interfaces){
 				System.out.print(impitf +" ");
 			}
 			System.out.println();

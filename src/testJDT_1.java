@@ -8,15 +8,12 @@ public class testJDT_1 {
 			List<ClassADT> classes = new ArrayList<ClassADT>();
 			for(String Cname : ClassADT.lsClass_name)
 			{
-				//System.out.println(name);
 				int indx = ClassADT.lsClass_name.indexOf(Cname);
-//				System.out.println(indx);
 				String content = ClassADT.lsClass.get(indx);
 				ClassADT clas = ClassADT.createClassADT(content, Cname);
 				classes.add(clas);
 			}
 			ClassADT example = classes.get(classes.size()-1);
-			//System.out.println(ClassADT.lsClass.get(classes.size()-1));
 			System.out.println("Ten class: " + example.name);
 			System.out.println("Abstract: " + example.abs);
 			System.out.println("Has a: ");

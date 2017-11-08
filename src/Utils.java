@@ -1,10 +1,6 @@
 import java.util.*;
 import java.io.*;
-
-//import java.nio.*;
-//import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.*;
-//import org.eclipse.jdt.core.dom.ClassDeclaration;
 
 class Utils{
 	static List<String> readContentFromFile(String path){

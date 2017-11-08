@@ -83,7 +83,6 @@ class ClassADT {
 				else superclass = "null";
 				return true;
 			}});
-		//this.superclass = superClass.get(0);
 	}
 	void setMethod (CompilationUnit cu){
 		cu.accept(new ASTVisitor() {

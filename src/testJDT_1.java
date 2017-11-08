@@ -53,13 +53,7 @@ public class testJDT_1 {
 			for(String impitf : ex.interfaces){
 				System.out.print(impitf +" ");
 			}
-			System.out.println();
-//			for(String i : InterfaceADT.itfcontent)
-//			{
-//				System.out.println(i);
-//			}
-			
-			
+			System.out.println();		
 	}
 	
 }

@@ -69,20 +69,20 @@ class Teacher extends Person implements hello
         this.rank = rank;
     }
 	public void draw()
-{
-	school = "1";
+	{
+		school = "1";
+	}
 }
-}
-//class President extends Person{
-//    String country;
-//    public String getCountry() {
-//        return this.country;
-//    }
-//    public void setCountry(String country) {
-//        this.country = country;
-//    }
-//}
-class Developer extends Person{
+/*class President extends Person{
+    String country;
+    public String getCountry() {
+        return this.country;
+    }
+    public void setCountry(String country) {
+        this.country = country;
+    }
+}*/
+/*class Developer extends Person{
     List<String> languages = new ArrayList<String>();
     public List<String> getLanguage() {
         return this.languages;
@@ -90,7 +90,7 @@ class Developer extends Person{
     public void setLanguage(List<String> languages) {
         this.languages = languages;
     }
-}
+}*/
 class Student extends Person{
     String school;
     String Class;
@@ -177,4 +177,10 @@ class Bird extends Animal{
     public void setLayeggs(boolean layeggs) {
         this.layeggs = layeggs;
     }
+}
+abstract class h1 extends Bird {
+	public void hello() {
+		System.out.println(1);
+	}
+	public abstract void hi();
 }

@@ -6,22 +6,23 @@ public class testJDT_1 {
 			ClassADT.getClassContent(path);
 			ClassADT.getClassName();
 			List<ClassADT> classes = new ArrayList<ClassADT>();
-			for(String Cname : ClassADT.classname)
+			for(String Cname : ClassADT.lsClass_name)
 			{
 				//System.out.println(name);
-				int indx = ClassADT.classname.indexOf(Cname);
+				int indx = ClassADT.lsClass_name.indexOf(Cname);
 //				System.out.println(indx);
 				String content = ClassADT.lsClass.get(indx);
 				ClassADT clas = ClassADT.createClassADT(content, Cname);
 				classes.add(clas);
 			}
-			ClassADT example = classes.get(2);
+			ClassADT example = classes.get(classes.size()-1);
+			//System.out.println(ClassADT.lsClass.get(classes.size()-1));
 			System.out.println("Ten class: " + example.name);
-			example.hasaFind(classes);
+			System.out.println("Abstract: " + example.abs);
 			System.out.println("Has a: ");
-			for(ClassADT i : example.hasaClass)
+			for(String i : example.hasaClass)
 			{
-				System.out.println(i.getName());
+				System.out.println(i);
 			}
 			System.out.println("Interfaces: ");
 			for(String i : example.interfaces)
@@ -43,10 +44,10 @@ public class testJDT_1 {
 			InterfaceADT.readInterfaceFromFile(path);
 			InterfaceADT.getInterfacesContent(path);
 			List<InterfaceADT> interfaces = new ArrayList<InterfaceADT>();
-			for(String Iname : InterfaceADT.itfname)
+			for(String Iname : InterfaceADT.lsInterface_name)
 			{
-				int index = InterfaceADT.itfname.indexOf(Iname);
-				String Icontent = InterfaceADT.itfcontent.get(index);
+				int index = InterfaceADT.lsInterface_name.indexOf(Iname);
+				String Icontent = InterfaceADT.lsInterface.get(index);
 				InterfaceADT iface = InterfaceADT.createInterface(Icontent, Iname);
 				interfaces.add(iface);
 			}

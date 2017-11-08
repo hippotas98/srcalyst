@@ -6,8 +6,7 @@ public class testJDT_1 {
 			ClassADT.getClassContent(path);
 			ClassADT.getClassName();
 			List<ClassADT> classes = new ArrayList<ClassADT>();
-			for(String Cname : ClassADT.lsClass_name)
-			{
+			for(String Cname : ClassADT.lsClass_name){
 				int indx = ClassADT.lsClass_name.indexOf(Cname);
 				String content = ClassADT.lsClass.get(indx);
 				ClassADT clas = ClassADT.createClassADT(content, Cname);

@@ -49,15 +49,19 @@ class Utils{
             if(file.isDirectory()==false)
             {
                 StringBuilder temp = new StringBuilder();
-                temp.append(file.getName());
-                ls.add(temp.toString());
+                temp.append(file.getParent());
+                temp.append("/");
+                if(file.getName().contains(".java") && file.getName().indexOf(".")!=0)
+                {
+                		temp.append(file.getName());
+                }
+                ls.add(temp);
             }
         }
         for(File file : folder.listFiles())
         {
             if(file.isDirectory())
             {
-                //ls.add(file.getPath());
                 ls = readFileName(file.getPath(),ls);
             }
         }

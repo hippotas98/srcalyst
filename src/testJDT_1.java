@@ -2,7 +2,14 @@ import java.util.*;
 
 public class testJDT_1 {
 	public static void main(String [] args){
-			String path = "./src/cau3.java";
+			String folder = ".";
+			List<String> lsFile = new ArrayList<String>();
+			lsFile = Utils.readFileName(folder, lsFile);
+			for(String file : lsFile)
+			{
+				System.out.println(file);
+			}
+			String path = "./src/source.java";
 			ClassADT.getClassContent(path);
 			ClassADT.getClassName();
 			List<ClassADT> classes = new ArrayList<ClassADT>();

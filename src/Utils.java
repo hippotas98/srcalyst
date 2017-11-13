@@ -12,7 +12,6 @@ class Utils{
             }
             strs = removeComment(strs);
         } catch (Exception e) {
-            //TODO: handle exception
             e.printStackTrace();
         }
         return strs;

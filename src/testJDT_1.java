@@ -2,13 +2,13 @@ import java.util.*;
 
 public class testJDT_1 {
 	public static void main(String [] args){
-			String folder = ".";
-			List<String> lsFile = new ArrayList<String>();
-			lsFile = Utils.readFileName(folder, lsFile);
-			for(String file : lsFile)
-			{
-				System.out.println(file);
-			}
+//			String folder = ".";
+////			List<String> lsFile = new ArrayList<String>();
+////			lsFile = Utils.readFileName(folder, lsFile);
+////			for(String file : lsFile)
+////			{
+////				System.out.println(file);
+////			}
 			String path = "./src/source.java";
 			ClassADT.getClassContent(path);
 			ClassADT.getClassName();
@@ -19,11 +19,15 @@ public class testJDT_1 {
 				ClassADT clas = ClassADT.createClassADT(content, Cname);
 				classes.add(clas);
 			}
-			ClassADT example = classes.get(classes.size()-1);
+			ClassADT example = classes.get(classes.size()-2);
 			System.out.println("Ten class: " + example.name);
 			System.out.println("Abstract: " + example.abs);
 			System.out.println("Has a: ");
 			for(String i : example.hasaClass){
+				System.out.println(i);
+			}
+			System.out.println("Inner Class: ");
+			for(String i : example.innerclass){
 				System.out.println(i);
 			}
 			System.out.println("Interfaces: ");
@@ -62,5 +66,4 @@ public class testJDT_1 {
 			}
 			System.out.println();		
 	}
-	
 }

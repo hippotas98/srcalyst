@@ -5,6 +5,7 @@ class ClassADT {
 	List<String> methods = new ArrayList<String>();
 	List<String> interfaces = new ArrayList<String>();
 	List<String> variables = new ArrayList<String>();
+	List<String> innerclass = new ArrayList<String>();
 	String superclass = "null";
 	static List<String> lsClass = new ArrayList<String>(); // list class
 	static List<String> lsClass_name = new ArrayList<String>(); // class name
@@ -28,13 +29,15 @@ class ClassADT {
 	public List<String> getInterfaces(){
 		return this.interfaces;
 	}
-	public ClassADT(String name, List<String> method, List<String>variables, List<String> interfaces, List<String> hasaClass, boolean abs, String superclass){
+	public ClassADT(String name, List<String> method, List<String>variables, List<String> interfaces, 
+			List<String> hasaClass, List<String> innerclass, boolean abs, String superclass){
 		setName(name);
 		this.methods = method;
 		this.variables = variables;
 		this.interfaces = interfaces;
 		this.superclass = superclass;
 		this.hasaClass = hasaClass;
+		this.innerclass = innerclass;
 		this.abs = abs;
 	}
 	public static ClassADT createClassADT(String content, String name){
@@ -44,17 +47,16 @@ class ClassADT {
 		List<String> lsInterface = InterfaceADT.lsInterface_name;
 		List<String> interfaces = InterfaceADT.getInterfaces(lsInterface, content);
 		List<String> hasaClass = new ArrayList<String>();
+		List<String> innerclass = new ArrayList<String>();
 		boolean abs = false;
 		String spn = new String();
-		ClassADT clas =  new ClassADT(name,method,variables,interfaces,hasaClass,abs,spn);
+		ClassADT clas =  new ClassADT(name,method,variables,interfaces,hasaClass,innerclass,abs,spn);
 		clas.IsAbstract();
 		clas.setVariable(cu);
 		clas.setMethod(cu);
+		clas.setInnerclass(cu);
+		clas.setSuperClass(cu);
 		clas.hasaFind();
-		if(content.contains("extends")){
-			clas.setSuperClass(cu);
-		}
-		else clas.superclass = "null";
 		return clas;
 	}
 	void setVariable(CompilationUnit cu){
@@ -72,12 +74,11 @@ class ClassADT {
 			}});
 	}
 	void setSuperClass (CompilationUnit cu){
-		//List<String> superClass = new ArrayList<String>();
 		cu.accept(new ASTVisitor() {
 			public boolean visit(TypeDeclaration node){
 				if(node!=null){
 					Type sc = node.getSuperclassType();
-					String type = sc.toString();
+					String type = sc != null ? sc.toString() : "null";
 					superclass = type;
 				}
 				else superclass = "null";
@@ -118,17 +119,23 @@ class ClassADT {
         List<String> temp = Utils.readContentFromFile(fileName);
         for(int i = 0;i<temp.size();){
             int index = 0;
+            int counter = 0;
             if(temp.get(i).contains("class")){
+            		if(temp.get(i).contains("{")) {
+            			counter+=1;
+            		}
                 StringBuilder tmp = new StringBuilder();
                 for(int j = i + 1;j<temp.size();++j){
-                    if(temp.get(j).contains("class")||temp.get(j).contains("interfaces")){
-                        index = j; 
-                        break;
-                    } 
-                    else if (j==temp.size()-1){
-                        index = j;
-                        break;
-                    }
+                		  if(temp.get(j).contains("{")) {
+                			  counter+=1;
+                		  }
+                		  if(temp.get(j).contains("}")) {
+                			  counter-=1;
+                		  }
+                		  if(counter==0) {
+                			  index = j+1;
+                			  break;
+                		  }
                 }
                 List<String> strs = temp.subList(i,index);
                 for(String str : strs){
@@ -165,9 +172,36 @@ class ClassADT {
 					hasaClass.add(clas);
 				}
 			}
+			for(String cls : this.innerclass) {
+				if(!cls.equals("null")) {
+					if(cls.equals(type)) {
+						hasaClass.add(cls);
+					}
+				}
+			}
 		}
 		if(hasaClass.size()==0){
 			hasaClass.add("null");
+		}
+	}
+	void setInnerclass(CompilationUnit cu)
+	{
+		cu.accept(new ASTVisitor() {
+			public boolean visit(TypeDeclaration node){
+				if(!node.isPackageMemberTypeDeclaration()){
+					innerclass.add(node.getName().toString());
+				}
+				return true;
+			}
+			public boolean visit(AnonymousClassDeclaration node){
+				String name = "Anonymous ";
+				name = name + node.toString();
+				innerclass.add(name);
+				return true;
+			}
+		});
+		if(innerclass.size()==0){
+			innerclass.add("null");
 		}
 	}
 }

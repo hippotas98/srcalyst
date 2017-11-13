@@ -54,8 +54,8 @@ class Utils{
                 if(file.getName().contains(".java") && file.getName().indexOf(".")!=0)
                 {
                 		temp.append(file.getName());
+                		ls.add(temp.toString());
                 }
-                ls.add(temp);
             }
         }
         for(File file : folder.listFiles())

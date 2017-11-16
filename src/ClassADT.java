@@ -51,11 +51,11 @@ class ClassADT {
 		boolean abs = false;
 		String spn = new String();
 		ClassADT clas =  new ClassADT(name,method,variables,interfaces,hasaClass,innerclass,abs,spn);
+		clas.setSuperClass(cu);
 		clas.IsAbstract();
 		clas.setVariable(cu);
 		clas.setMethod(cu);
 		clas.setInnerclass(cu);
-		clas.setSuperClass(cu);
 		clas.hasaFind();
 		return clas;
 	}
@@ -74,44 +74,63 @@ class ClassADT {
 			}});
 	}
 	void setSuperClass (CompilationUnit cu){
-		cu.accept(new ASTVisitor() {
-			public boolean visit(TypeDeclaration node){
-				if(node!=null){
-					Type sc = node.getSuperclassType();
-					String type = sc != null ? sc.toString() : "null";
-					superclass = type;
-				}
-				else superclass = "null";
-				return true;
-			}});
+		int indx = lsClass_name.indexOf(name);
+		String firstLine = lsClass.get(indx).substring(lsClass.get(indx).indexOf("class"),lsClass.get(indx).indexOf("{"));
+		if(firstLine.contains("extends")) {
+			cu.accept(new ASTVisitor() {
+				public boolean visit(TypeDeclaration node){
+					if(node!=null){
+						//String type = sc.toString();
+						while(node.getParent() instanceof TypeDeclaration) {
+							TypeDeclaration nodeP = (TypeDeclaration) node.getParent();
+							if(nodeP.getName().toString().equals(name)) {
+								Type sc = nodeP.getSuperclassType();
+								superclass = sc.toString();
+							}
+							node = (TypeDeclaration) node.getParent();
+						}
+					}
+					else superclass = "null";
+					return true;
+				}});
+		}
+		else superclass = "null";
 	}
 	void setMethod (CompilationUnit cu){
 		cu.accept(new ASTVisitor() {
+			String parentname = getName();
 			public boolean visit(MethodDeclaration node){
-				String name = node.getName().toString();
-				String type = node.getReturnType2().toString();
-				List<SingleVariableDeclaration> parameter = node.parameters();
-				String para_name = "(";
-				String str="";
-				for(SingleVariableDeclaration i : parameter){
-					str += i.getType().toString() + " " + i.getName();
-					if(parameter.listIterator().hasNext()==false)
-						str += ",";
-				}
-				para_name = para_name +  str + ")";
-				String method ="";
-				if(abs==false) {
-					method += type + " " + name + para_name;
-				}
-				else
-				{
-					if(node.getBody()==null)
-					{
-						method = "abstract ";
+				//if(node.getParent().is) {
+					String name = node.getName().toString();
+					String type = node.getReturnType2().toString();
+					List<SingleVariableDeclaration> parameter = node.parameters();
+					String para_name = "(";
+					String str="";
+					for(SingleVariableDeclaration i : parameter){
+						str += i.getType().toString() + " " + i.getName();
+						if(parameter.listIterator().hasNext()==false)
+							str += ",";
 					}
-					method += type + " " + name + para_name;
-				}
-				methods.add(method);
+					para_name = para_name +  str + ")";
+					String method ="";
+					if(abs==false) {
+						method += type + " " + name + para_name;
+					}
+					else
+					{
+						if(node.getBody()==null)
+						{
+							method = "abstract ";
+						}
+						method += type + " " + name + para_name;
+					}
+					if(node.getParent() instanceof TypeDeclaration){
+						TypeDeclaration parent = (TypeDeclaration) node.getParent();
+						if(parent.getName().toString().equals(parentname))
+							methods.add(method);
+					}
+						
+				//}
 				return true;
 			}});
 	}

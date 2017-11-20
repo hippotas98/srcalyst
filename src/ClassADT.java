@@ -223,4 +223,21 @@ class ClassADT {
 			innerclass.add("null");
 		}
 	}
+	List<String> getInformation(){
+		List<String> infor = new ArrayList<String>();
+		String abs = this.abs == true ? "abstract " : "";
+		String name = abs + "class : " + this.name;
+		infor.add(name);
+		infor.add("\n");
+		infor.add("Variable: ");
+		for(String variable : variables){
+			infor.add(variable);
+		}
+		infor.add("\n");
+		infor.add("Method: ");
+		for(String method : methods) {
+			infor.add(method);
+		}
+		return infor;
+	}
 }

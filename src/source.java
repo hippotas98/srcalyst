@@ -1,6 +1,6 @@
 import java.util.Collections.*;
 import java.util.*;
-public class cau3
+public class source
 {	
 int a = 0;
 	//public void static abc ()
@@ -177,8 +177,25 @@ class Bird extends Animal{
     public void setLayeggs(boolean layeggs) {
         this.layeggs = layeggs;
     }
+    class BabyBird implements hello{
+    		public void draw() {
+    			habitat = "0";
+    		}
+    		class H {
+    			int b;
+    		}
+    }
+    hello h = new hello() {
+    		public void 
+    		draw() 
+    		{
+    			System.out.println(1);
+    		}
+    };
+    BabyBird n = new BabyBird();
 }
 abstract class h1 extends Bird {
+	int a,b;
 	public void hello() {
 		System.out.println(1);
 	}

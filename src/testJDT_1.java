@@ -18,9 +18,9 @@ public class testJDT_1 {
 				String content = ClassADT.lsClass.get(indx);
 				ClassADT clas = ClassADT.createClassADT(content, Cname);
 				classes.add(clas);
-				ImageUtils.createImagefromString(clas.getInformation(), Cname);
+				//ImageUtils.createImagefromString(clas.getInformation(), Cname);
 			}
-			//ImageUtils.createImagefromString(infor,classes.get(8).name);
+			ImageUtils.createImagefromString(classes.get(0).getInformation(),classes.get(0).name);
 			System.out.println("DONE");
 	}
 }

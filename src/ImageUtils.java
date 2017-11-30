@@ -57,18 +57,14 @@ public class ImageUtils {
 	}
 	static void draw(Graphics2D g2d, List<String> lsString, int y,int width) {
 		int start = y-FONT_HEIGHT;
-		int end = y-FONT_HEIGHT;
-		int c = 0;
+		int end = y-FONT_HEIGHT-5;
 		Color color;
 		for(String i : lsString) {
 			if(i.equals("\n") || lsString.indexOf(i)==lsString.size()-1) {
 				//end+=FONT_HEIGHT;
 				if(lsString.indexOf(i)==lsString.size()-1) end += 5 + FONT_HEIGHT;
-				if(c%3 == 0) color = Color.CYAN;
-				else if(c%3==1) color = Color.GREEN;
-				else color = Color.YELLOW;
-				c++;
-				changeColor(g2d, color,0,start,width+10,end-start+15);
+				color = Color.WHITE;
+				changeColor(g2d, color,0,start+5,width+10,end-start+15);
 				start = end+15;
 			}
 			else end+=FONT_HEIGHT;

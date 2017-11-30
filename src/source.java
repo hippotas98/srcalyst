@@ -7,6 +7,9 @@ int a = 0;
 //{
 //	a = 1;
 //}
+	public source(int a) {
+		this.a = a;
+	}
     public static void main (String [] args)
     {
         Teacher t1 = new Teacher();

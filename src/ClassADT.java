@@ -100,37 +100,38 @@ class ClassADT {
 		cu.accept(new ASTVisitor() {
 			String parentname = getName();
 			public boolean visit(MethodDeclaration node){
-				//if(node.getParent().is) {
+				if(!node.isConstructor()) {
 					String name = node.getName().toString();
 					String type = node.getReturnType2().toString();
-					List<SingleVariableDeclaration> parameter = node.parameters();
-					String para_name = "(";
-					String str="";
-					for(SingleVariableDeclaration i : parameter){
-						str += i.getType().toString() + " " + i.getName();
-						if(parameter.listIterator().hasNext()==false)
-							str += ",";
-					}
-					para_name = para_name +  str + ")";
-					String method ="";
-					if(abs==false) {
-						method += type + " " + name + para_name;
-					}
-					else
-					{
-						if(node.getBody()==null)
-						{
-							method = "abstract ";
+					if(type!=null) {
+						List<SingleVariableDeclaration> parameter = node.parameters();
+						String para_name = "(";
+						String str="";
+						for(SingleVariableDeclaration i : parameter){
+							str += i.getType().toString() + " " + i.getName();
+							if(parameter.listIterator().hasNext()==false)
+								str += ",";
 						}
-						method += type + " " + name + para_name;
+						para_name = para_name +  str + ")";
+						String method ="";
+						if(abs==false) {
+							method += type + " " + name + para_name;
+						}
+						else
+						{
+							if(node.getBody()==null)
+							{
+								method = "abstract ";
+							}
+							method += type + " " + name + para_name;
+						}
+						if(node.getParent() instanceof TypeDeclaration){
+							TypeDeclaration parent = (TypeDeclaration) node.getParent();
+							if(parent.getName().toString().equals(parentname))
+								methods.add(method);
+						}
 					}
-					if(node.getParent() instanceof TypeDeclaration){
-						TypeDeclaration parent = (TypeDeclaration) node.getParent();
-						if(parent.getName().toString().equals(parentname))
-							methods.add(method);
-					}
-						
-				//}
+				}
 				return true;
 			}});
 	}
@@ -226,15 +227,13 @@ class ClassADT {
 	List<String> getInformation(){
 		List<String> infor = new ArrayList<String>();
 		String abs = this.abs == true ? "abstract " : "";
-		String name = abs + "class : " + this.name;
+		String name = abs + this.name;
 		infor.add(name);
 		infor.add("\n");
-		infor.add("Variable: ");
 		for(String variable : variables){
 			infor.add(variable);
 		}
 		infor.add("\n");
-		infor.add("Method: ");
 		for(String method : methods) {
 			infor.add(method);
 		}
